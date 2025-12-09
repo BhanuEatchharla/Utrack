@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { MapPin, Activity, Globe, Clock } from 'lucide-react';
-import { useTheme, colorClasses } from '@/lib/theme-context';
+import { MapPin, Activity, Globe, Clock } from "lucide-react";
+import { useTheme, colorClasses } from "@/lib/theme-context";
 
 export default function GPSLocations() {
   const { primaryColor } = useTheme();
@@ -10,11 +10,12 @@ export default function GPSLocations() {
     <section id="locations" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-4">
             GPS Locations & Live Vehicle Tracking
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Real-time location intelligence with precision GPS tracking and comprehensive coverage
+            Real-time location intelligence with precision GPS tracking and
+            comprehensive coverage
           </p>
         </div>
 
@@ -23,55 +24,56 @@ export default function GPSLocations() {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Hub Location – JNTU Hyderabad
             </h3>
+            <div className="relative h-96 rounded-xl overflow-hidden">
+              {/* REAL LOCATION IMAGE */}
 
-            <div className="relative h-96 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 overflow-hidden">
-              <div className="absolute inset-0">
-                <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <rect x="20" y="30" width="15" height="20" fill="#cbd5e1" opacity="0.3" />
-                  <rect x="40" y="25" width="20" height="25" fill="#cbd5e1" opacity="0.3" />
-                  <rect x="65" y="30" width="15" height="20" fill="#cbd5e1" opacity="0.3" />
-                  <rect x="25" y="55" width="18" height="15" fill="#cbd5e1" opacity="0.3" />
-                  <rect x="50" y="55" width="25" height="20" fill="#cbd5e1" opacity="0.3" />
+              <img
+                src="https://images.shiksha.com/mediadata/images/listingGoogle/listingLocationlive146136.jpg"
+                alt="JNTU Hyderabad Map"
+                className="absolute inset-0 w-full h-full object-cover brightness-90 dark:brightness-75"
+              />
 
-                  <line x1="0" y1="50" x2="100" y2="50" stroke="#94a3b8" strokeWidth="2" />
-                  <line x1="50" y1="0" x2="50" y2="100" stroke="#94a3b8" strokeWidth="2" />
-                  <line x1="20" y1="20" x2="80" y2="80" stroke="#94a3b8" strokeWidth="1" opacity="0.5" />
-                </svg>
-              </div>
+              {/* DARK OVERLAY FOR TEXT VISIBILITY */}
+              <div className="absolute inset-0 bg-black/10 dark:bg-black/30" />
 
+              {/* HUB PIN */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className={`w-16 h-16 rounded-full ${colorClasses[primaryColor].bg} flex items-center justify-center text-white shadow-2xl animate-pulse`}>
+                <div
+                  className={`w-16 h-16 rounded-full ${colorClasses[primaryColor].bg} flex items-center justify-center text-white shadow-2xl animate-pulse`}
+                >
                   <MapPin size={32} />
                 </div>
                 <div className="mt-3 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 shadow-lg text-center">
                   <p className="text-sm font-bold text-gray-900 dark:text-white">
                     Hub - JNTU Hyderabad
                   </p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                  <p className="text-xs text-gray-600 dark:text-gray-300">
                     17.4924° N, 78.3915° E
                   </p>
                 </div>
               </div>
 
-              <div className="absolute top-[30%] left-[65%] animate-bounce">
-                <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-                    <circle cx="7" cy="18" r="2" />
-                    <circle cx="17" cy="18" r="2" />
-                  </svg>
-                </div>
-              </div>
+              {/* VEHICLE MARKER 1 */}
+              {/* <div className="absolute top-[30%] left-[65%] animate-bounce">
+    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+        <circle cx="7" cy="18" r="2" />
+        <circle cx="17" cy="18" r="2" />
+      </svg>
+    </div>
+  </div> */}
 
-              <div className="absolute top-[65%] left-[30%] animate-bounce" style={{ animationDelay: '0.5s' }}>
-                <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-                    <circle cx="7" cy="18" r="2" />
-                    <circle cx="17" cy="18" r="2" />
-                  </svg>
-                </div>
-              </div>
+              {/* VEHICLE MARKER 2 */}
+              {/* <div className="absolute top-[65%] left-[30%] animate-bounce" style={{ animationDelay: '0.5s' }}>
+    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+        <circle cx="7" cy="18" r="2" />
+        <circle cx="17" cy="18" r="2" />
+      </svg>
+    </div>
+  </div> */}
             </div>
           </div>
 
@@ -88,7 +90,10 @@ export default function GPSLocations() {
                     <span className="text-xs text-blue-100">Depot</span>
                   </div>
                   <div className="flex-1 mx-4 relative h-1 bg-white/20 rounded-full">
-                    <div className="absolute inset-0 bg-white/40 rounded-full" style={{ width: '60%' }} />
+                    <div
+                      className="absolute inset-0 bg-white/40 rounded-full"
+                      style={{ width: "60%" }}
+                    />
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center mb-1">
@@ -106,12 +111,12 @@ export default function GPSLocations() {
                 </div>
 
                 <div className="truck-moving">
-                  <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shadow-2xl">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-                      <circle cx="7" cy="18" r="2" />
-                      <circle cx="17" cy="18" r="2" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-2xl">
+                    <img
+                      src="https://vms-admin.pragatiutrack.com/logo.svg"
+                      alt="Truck"
+                      className="w-8 h-6 object-contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -138,7 +143,9 @@ export default function GPSLocations() {
 
         <div className="grid sm:grid-cols-3 gap-8">
           <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-700">
-            <div className={`w-16 h-16 rounded-full ${colorClasses[primaryColor].bg} flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}>
+            <div
+              className={`w-16 h-16 rounded-full ${colorClasses[primaryColor].bg} flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}
+            >
               <Activity size={32} />
             </div>
             <p className="text-4xl font-bold text-gray-900 dark:text-white mb-2">

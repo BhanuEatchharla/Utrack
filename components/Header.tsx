@@ -76,7 +76,7 @@ export default function Header() {
               </button>
             ))}
             <a
-              href="https://vms-admin.pragatiutrack.com/home"
+              href="https://vms-admin.pragatiutrack.com"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-6 py-2.5 rounded-lg text-white font-semibold transition-all ${colorClasses[primaryColor].bg} ${colorClasses[primaryColor].hover} shadow-lg hover:shadow-xl hover:scale-105`}

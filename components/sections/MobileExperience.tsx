@@ -1,16 +1,19 @@
-'use client';
+"use client";
 
-import { Smartphone, Bell, CheckCircle, MapPin } from 'lucide-react';
-import { useTheme, colorClasses } from '@/lib/theme-context';
+import { Smartphone, Bell, CheckCircle, MapPin } from "lucide-react";
+import { useTheme, colorClasses } from "@/lib/theme-context";
 
 export default function MobileExperience() {
   const { primaryColor } = useTheme();
 
   return (
-    <section id="mobile-experience" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+    <section
+      id="mobile-experience"
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800"
+    >
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-4">
             Mobile-first for Drivers and Managers
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -22,7 +25,9 @@ export default function MobileExperience() {
           <div className="space-y-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
               <div className="flex items-center space-x-4 mb-6">
-                <div className={`w-12 h-12 rounded-xl ${colorClasses[primaryColor].bg} flex items-center justify-center text-white`}>
+                <div
+                  className={`w-12 h-12 rounded-xl ${colorClasses[primaryColor].bg} flex items-center justify-center text-white`}
+                >
                   <Smartphone size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -37,7 +42,9 @@ export default function MobileExperience() {
                     In Progress
                   </span>
                 </div>
-                <p className="text-blue-100 text-sm mb-4">Hyderabad to Bengaluru</p>
+                <p className="text-blue-100 text-sm mb-4">
+                  Hyderabad to Bengaluru
+                </p>
                 <div className="flex items-center space-x-4 mb-4">
                   <button className="flex-1 py-3 rounded-lg bg-white text-blue-600 font-semibold">
                     Start Break
@@ -79,7 +86,42 @@ export default function MobileExperience() {
                 </div>
               </div>
             </div>
+
+
+            {/* NEW CARD — Driver Utility Tools */}
+<div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-gray-700">
+  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+    Driver Utility Tools
+  </h3>
+
+  <div className="space-y-3">
+    <div className="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-gray-700">
+      <span className="text-sm text-gray-700 dark:text-gray-300">Document Upload</span>
+      <span className="text-blue-600 dark:text-blue-400 font-semibold text-sm">Enabled</span>
+    </div>
+
+    <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700">
+      <span className="text-sm text-gray-700 dark:text-gray-300">SOS Alert</span>
+      <span className="px-3 py-1 rounded-full bg-red-600 text-white text-xs font-medium">
+        Emergency
+      </span>
+    </div>
+
+    <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700">
+      <span className="text-sm text-gray-700 dark:text-gray-300">Live Chat Support</span>
+      <span className="font-semibold text-emerald-600 dark:text-emerald-400">Available</span>
+    </div>
+
+    <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700">
+      <span className="text-sm text-gray-700 dark:text-gray-300">Trip History</span>
+      <span className="font-semibold text-gray-900 dark:text-white">View →</span>
+    </div>
+  </div>
+</div>
+
           </div>
+
+          
 
           <div className="space-y-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
@@ -140,7 +182,10 @@ export default function MobileExperience() {
                 <div className="absolute inset-0 opacity-20">
                   <div className="grid grid-cols-8 h-full">
                     {Array.from({ length: 40 }).map((_, i) => (
-                      <div key={i} className="border-r border-b border-gray-400 dark:border-gray-500" />
+                      <div
+                        key={i}
+                        className="border-r border-b border-gray-400 dark:border-gray-500"
+                      />
                     ))}
                   </div>
                 </div>
@@ -150,19 +195,21 @@ export default function MobileExperience() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl p-8 shadow-xl text-white">
+            <div className="bg-gradient-to-br from-emerald-500 to-emerald-500 rounded-2xl p-8 shadow-xl text-white">
               <h4 className="text-2xl font-bold mb-4">Platform Features</h4>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3">
                   <CheckCircle size={20} className="mt-0.5 flex-shrink-0" />
                   <span className="text-sm">
-                    React Native apps for iOS and Android with native performance
+                    React Native apps for iOS and Android with native
+                    performance
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle size={20} className="mt-0.5 flex-shrink-0" />
                   <span className="text-sm">
-                    Progressive Web App (PWA) for dispatch teams and office staff
+                    Progressive Web App (PWA) for dispatch teams and office
+                    staff
                   </span>
                 </div>
                 <div className="flex items-start space-x-3">

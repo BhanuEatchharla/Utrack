@@ -14,7 +14,7 @@ export default function RequestDemo() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-6">
           See UTrack in Action
         </h2>
         <p className="text-xl text-blue-100 mb-4">
