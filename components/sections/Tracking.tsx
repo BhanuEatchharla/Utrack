@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { MapPin, Clock, Navigation, Bell } from 'lucide-react';
@@ -7,12 +8,12 @@ export default function Tracking() {
   const { primaryColor } = useTheme();
 
   const steps = [
-    { label: 'Trip Created', status: 'completed' },
-    { label: 'Vehicle Assigned', status: 'completed' },
-    { label: 'Driver Dispatched', status: 'completed' },
-    { label: 'In Transit', status: 'active' },
-    { label: 'Arriving Soon', status: 'pending' },
-    { label: 'Completed', status: 'pending' },
+    { label: 'Trip Created', status: 'completed', detail: 'Trip created in UTrack control room.' },
+    { label: 'Vehicle Assigned', status: 'completed', detail: 'Vehicle & driver assigned to this trip.' },
+    { label: 'Driver Dispatched', status: 'completed', detail: 'Driver started from source location.' },
+    { label: 'In Transit', status: 'active', detail: 'Vehicle is currently travelling towards destination.' },
+    { label: 'Arriving Soon', status: 'pending', detail: 'Vehicle is near destination hub.' },
+    { label: 'Completed', status: 'pending', detail: 'Trip will be closed after delivery confirmation.' },
   ];
 
   return (
@@ -129,9 +130,10 @@ export default function Tracking() {
                 </div>
 
                 {/* waypoints */}
-                <div className="absolute top-[56%] left-[28%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
-                <div className="absolute top-[46%] left-[45%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
-                <div className="absolute top-[34%] left-[65%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
+                <div className="absolute top-[60%] left-[24%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
+                <div className="absolute top-[50%] left-[38%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
+                <div className="absolute top-[40%] left-[55%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
+                <div className="absolute top-[30%] left-[73%] w-4 h-4 rounded-full bg-blue-500 shadow-lg animate-pulse" />
 
                 {/* destination */}
                 <div className="absolute top-[20%] left-[90%] flex flex-col items-center -translate-x-1/2">
@@ -143,15 +145,19 @@ export default function Tracking() {
                   </span>
                 </div>
 
-                {/* truck moving along route – NOW USING UTrack LOGO */}
+                {/* truck moving along route – UTrack logo */}
                 <div className="truck-container">
                   <div
-                    className={`truck-icon rounded-lg p-2 shadow-xl bg-gradient-to-br ${colorClasses[primaryColor].gradient}`}
+                    className={`
+                      truck-icon rounded-full border border-slate-200/70 dark:border-slate-700
+                      bg-white/95 dark:bg-slate-900/90 shadow-xl flex items-center justify-center
+                      w-10 h-10 sm:w-11 sm:h-11
+                    `}
                   >
                     <img
                       src="https://vms-admin.pragatiutrack.com/logo.svg"
                       alt="UTrack Logo"
-                      className="w-full h-full object-contain"
+                      className="w-8 h-5 sm:w-9 sm:h-6 object-contain"
                     />
                   </div>
                 </div>
@@ -192,57 +198,92 @@ export default function Tracking() {
             </div>
           </div>
 
-          {/* RIGHT: Timeline + summary */}
+          {/* RIGHT: Flipkart-style timeline + summary */}
           <div className="space-y-8">
             {/* Trip Timeline */}
             <div className="bg-white/95 dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200/80 dark:border-slate-800">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Trip Timeline
               </h3>
 
-              <div className="relative pl-4">
-                {/* vertical line */}
-                <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-400 via-blue-500 to-slate-300 dark:from-emerald-400 dark:via-blue-500 dark:to-slate-700" />
-                <div className="space-y-4">
+              <div className="relative mt-4">
+                {/* vertical line like Flipkart */}
+                <div className="absolute left-4 top-1 bottom-1 w-[3px] bg-slate-200 dark:bg-slate-700">
+                  <div className="h-1/2 bg-emerald-500 rounded-full" />
+                </div>
+
+                <div className="space-y-6 pl-10">
                   {steps.map((step, index) => {
-                    const isLast = index === steps.length - 1;
+                    const isCompleted = step.status === 'completed';
+                    const isActive = step.status === 'active';
+                    const isPending = step.status === 'pending';
+
                     return (
-                      <div key={index} className="relative flex items-start gap-4">
-                        <div className="relative z-10 mt-0.5">
-                          <div
-                            className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold
-                              ${step.status === 'completed'
-                                ? `${colorClasses[primaryColor].bg} text-white shadow-md`
-                                : step.status === 'active'
-                                  ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 ring-4 ring-blue-100 dark:ring-blue-900'
-                                  : 'bg-slate-200 dark:bg-slate-700 text-slate-500'
+                      <div key={index} className="relative">
+                        {/* dot */}
+                        <div
+                          className={`
+                            absolute -left-[1.55rem] top-1 w-4 h-4 rounded-full border-[3px]
+                            ${
+                              isCompleted
+                                ? 'bg-emerald-500 border-emerald-500'
+                                : isActive
+                                ? 'bg-white dark:bg-slate-900 border-blue-500'
+                                : 'bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-600'
+                            }
+                          `}
+                        />
+
+                        <div className="space-y-1">
+                          <div className="flex flex-wrap items-baseline gap-2">
+                            <span
+                              className={`
+                                text-base sm:text-lg font-semibold
+                                ${
+                                  isCompleted
+                                    ? 'text-slate-900 dark:text-slate-50'
+                                    : isActive
+                                    ? 'text-blue-600 dark:text-blue-400'
+                                    : 'text-slate-500 dark:text-slate-500'
+                                }
+                              `}
+                            >
+                              {step.label}
+                            </span>
+                            <span className="text-xs sm:text-[11px] text-slate-400 dark:text-slate-500">
+                              {/* You can replace with real timestamps if needed */}
+                              Today · Live Trip
+                            </span>
+                          </div>
+
+                          <p
+                            className={`
+                              text-sm
+                              ${
+                                isCompleted
+                                  ? 'text-slate-700 dark:text-slate-200'
+                                  : isActive
+                                  ? 'text-slate-700 dark:text-slate-200'
+                                  : 'text-slate-400 dark:text-slate-500'
                               }
                             `}
                           >
-                            {step.status === 'completed' ? '✓' : index + 1}
-                          </div>
-                          {!isLast && (
-                            <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 h-4 w-px bg-slate-200 dark:bg-slate-700" />
-                          )}
-                        </div>
-
-                        <div className="flex-1">
-                          <p
-                            className={`font-semibold text-sm sm:text-base ${step.status === 'active'
-                                ? 'text-blue-600 dark:text-blue-400'
-                                : 'text-slate-900 dark:text-white'
-                              }`}
-                          >
-                            {step.label}
+                            {step.detail}
                           </p>
-                          {step.status === 'active' && (
-                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                              Currently in progress – live GPS &amp; alerts enabled
+
+                          {isCompleted && (
+                            <p className="text-xs text-slate-400 dark:text-slate-500">
+                              Status captured successfully.
                             </p>
                           )}
-                          {step.status === 'completed' && (
-                            <p className="text-xs text-slate-500 dark:text-slate-500">
-                              Completed successfully
+                          {isActive && (
+                            <p className="text-xs text-blue-500 dark:text-blue-300">
+                              Vehicle is moving – GPS, alerts & notifications are active.
+                            </p>
+                          )}
+                          {isPending && (
+                            <p className="text-xs text-slate-400 dark:text-slate-500">
+                              This step will update automatically when the trip progresses.
                             </p>
                           )}
                         </div>
@@ -299,29 +340,35 @@ export default function Tracking() {
       <style jsx>{`
         .truck-container {
           position: absolute;
-          animation: moveTruck 15s ease-in-out infinite;
+          transform: translate(-50%, -50%);
+          animation: moveTruck 14s linear infinite;
         }
 
+        /* More granular keyframes so the logo hugs the curve more closely */
         @keyframes moveTruck {
           0% {
             top: 70%;
             left: 10%;
           }
-          20% {
-            top: 60%;
-            left: 25%;
+          16% {
+            top: 63%;
+            left: 22%;
           }
-          40% {
-            top: 50%;
-            left: 35%;
+          32% {
+            top: 55%;
+            left: 34%;
           }
-          60% {
+          48% {
+            top: 47%;
+            left: 48%;
+          }
+          64% {
             top: 40%;
-            left: 55%;
+            left: 62%;
           }
           80% {
             top: 30%;
-            left: 75%;
+            left: 76%;
           }
           100% {
             top: 20%;
