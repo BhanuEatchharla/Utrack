@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { MapPin, Activity, Globe, Clock } from "lucide-react";
@@ -28,7 +29,7 @@ export default function GPSLocations() {
               {/* REAL LOCATION IMAGE */}
 
               <img
-                src="https://images.shiksha.com/mediadata/images/listingGoogle/listingLocationlive146136.jpg"
+                src="https://dr3h7ptpe31k5.cloudfront.net/Assets/images/17856/Serviced-Office-(Classic)-Telangana-Hyderabad-JNTU-Road-Manjeera-Trinity-Corporate-Kukatpally-Ranga-Red-3263232.jpg"
                 alt="JNTU Hyderabad Map"
                 className="absolute inset-0 w-full h-full object-cover brightness-90 dark:brightness-75"
               />
@@ -45,7 +46,7 @@ export default function GPSLocations() {
                 </div>
                 <div className="mt-3 px-4 py-2 rounded-lg bg-white dark:bg-gray-800 shadow-lg text-center">
                   <p className="text-sm font-bold text-gray-900 dark:text-white">
-                    Hub - JNTU Hyderabad
+                    {/* Hub - JNTU Hyderabad */}
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-300">
                     17.4924° N, 78.3915° E
@@ -53,27 +54,7 @@ export default function GPSLocations() {
                 </div>
               </div>
 
-              {/* VEHICLE MARKER 1 */}
-              {/* <div className="absolute top-[30%] left-[65%] animate-bounce">
-    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-        <circle cx="7" cy="18" r="2" />
-        <circle cx="17" cy="18" r="2" />
-      </svg>
-    </div>
-  </div> */}
-
-              {/* VEHICLE MARKER 2 */}
-              {/* <div className="absolute top-[65%] left-[30%] animate-bounce" style={{ animationDelay: '0.5s' }}>
-    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-        <circle cx="7" cy="18" r="2" />
-        <circle cx="17" cy="18" r="2" />
-      </svg>
-    </div>
-  </div> */}
+           
             </div>
           </div>
 
