@@ -204,7 +204,7 @@ export default function MobileExperience() {
                     React Native apps for iOS and Android with native
                     performance
                   </span>
-                </div>
+                </div> 
                 <div className="flex items-start space-x-3">
                   <CheckCircle size={20} className="mt-0.5 flex-shrink-0" />
                   <span className="text-sm">
