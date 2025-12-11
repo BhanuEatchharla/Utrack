@@ -35,7 +35,7 @@ export default function ThemeSelector() {
 
   const colors = Object.keys(gradients) as (keyof typeof gradients)[];
 
-  return (
+  return (   
     <div className="fixed bottom-24 lg:bottom-8 right-4 lg:right-8 z-40">
       
       {/* PANEL */}
