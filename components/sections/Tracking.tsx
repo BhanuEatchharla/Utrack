@@ -46,18 +46,18 @@ export default function Tracking() {
   return (
     <section
       id="tracking"
-      className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
+      className="py-4 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
     >
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-4">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-700 dark:text-white mb-4">
             Tracking That Feels Like Consumer Apps
           </h2>
           <p className="text-xl text-slate-700 dark:text-slate-300 mb-2">
             Advanced UTrack Journey Experience
           </p>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
             Monitor every journey with real-time updates, visual route tracking,
             and intelligent notifications.
           </p>
@@ -67,7 +67,7 @@ export default function Tracking() {
           {/* LEFT SIDE — Live map + stats */}
           <div className="space-y-8">
             {/* Live Route Tracking */}
-            <div className="bg-white/95 dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-[0_18px_50px_rgba(15,23,42,0.35)] border border-slate-200/80 dark:border-slate-800">
+            <div className="bg-white/95 dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-[0_5px_20px_rgba(15,23,42,0.35)] border border-slate-200/80 dark:border-slate-800">
               <div className="flex items-center justify-between gap-3 mb-6">
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
@@ -196,159 +196,153 @@ export default function Tracking() {
                   </div>
                 </div>
               </div>
-              
             </div>
-            
 
-            {/* Key journey features (UNCHANGED) */}
-            <div className="bg-white/95 dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200/80 dark:border-slate-800">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-5">
+            {/* Key Journey Features */}
+            <div
+              className={`
+    bg-gradient-to-br ${colorClasses[primaryColor].gradient}
+    rounded-2xl
+    p-5 sm:p-6
+    shadow-[0_5px_20px_rgba(15,23,42,0.75)]
+    text-white
+    transition-all duration-300 hover:shadow-xl
+  `}
+            >
+              <h3 className="text-base font-semibold  dark:text-white mb-4">
                 Key Journey Features
               </h3>
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <MapPin
-                    size={20}
-                    className={colorClasses[primaryColor].text}
-                  />
-                  <p className="text-slate-700 dark:text-slate-200">
-                    Real-time GPS updates every 10 seconds with route context.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Bell size={20} className={colorClasses[primaryColor].text} />
-                  <p className="text-slate-700 dark:text-slate-200">
-                    Instant alerts for ignition, overspeed & harsh driving.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Navigation
-                    size={20}
-                    className={colorClasses[primaryColor].text}
-                  />
-                  <p className="text-slate-700 dark:text-slate-200">
-                    Route deviation detection with automatic rerouting.
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Clock
-                    size={20}
-                    className={colorClasses[primaryColor].text}
-                  />
-                  <p className="text-slate-700 dark:text-slate-200">
-                    ETAs, delays & arrival alerts delivered instantly.
-                  </p>
-                </div>
+
+              <div className="space-y-3 text-sm">
+                {[
+                  {
+                    icon: MapPin,
+                    text: "Real-time GPS updates every 10 seconds with route context.",
+                  },
+                  {
+                    icon: Bell,
+                    text: "Instant alerts for ignition, overspeed & harsh driving.",
+                  },
+                  {
+                    icon: Navigation,
+                    text: "Route deviation detection with automatic rerouting.",
+                  },
+                  {
+                    icon: Clock,
+                    text: "ETAs, delays & arrival alerts delivered instantly.",
+                  },
+                ].map(({ icon: Icon, text }, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div
+                      className="text-white/80"
+                    >
+                      <Icon size={18} />
+                    </div>
+                    <p className=" text-white/80 leading-relaxed">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className=" bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200 dark:border-slate-800">
-  <div className="premium-card flex-grow">
-    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-5">
-      Vehicle Health
-    </h3>
+            {/* Vehicle Health */}
+            <div
+              className="bg-white dark:bg-slate-900 rounded-2xl
+  p-5 sm:p-6
+  shadow-lg border border-slate-200 dark:border-slate-800
+  transition-all duration-300 hover:shadow-xl"
+            >
+              <h3 className="text-base sm:text-xl font-semibold text-slate-900 dark:text-white mb-4">
+                Vehicle Health
+              </h3>
 
-    <div className="space-y-4 text-sm sm:text-base">
+              <div className="space-y-3 text-sm sm:text-base">
+                {[
+                  ["Ignition", "ON", "badge"],
+                  ["GPS Signal", "Strong"],
+                  ["Network", "4G / Good"],
+                  ["Device Battery", "78%"],
+                  ["Fuel Level", "62%"],
+                  ["Device Status", "ONLINE", "badge"],
+                ].map(([label, value, type], i) => (
+                  <div
+                    key={i}
+                    className="flex justify-between items-center gap-4"
+                  >
+                    <span className="text-slate-600 dark:text-slate-300">
+                      {label}
+                    </span>
 
-      {/* Ignition */}
-      <div className="flex justify-between items-center">
-        <span className="text-slate-600 dark:text-slate-300">Ignition</span>
-        <span className="px-3 py-1 rounded-full bg-emerald-500/80 text-white text-xs font-semibold">
-          ON
-        </span>
-      </div>
-
-      {/* GPS Signal */}
-      <div className="flex justify-between items-center">
-        <span className="text-slate-600 dark:text-slate-300">GPS Signal</span>
-        <span className="font-semibold text-slate-800 dark:text-white">
-          Strong
-        </span>
-      </div>
-
-      {/* Network */}
-      <div className="flex justify-between items-center">
-        <span className="text-slate-600 dark:text-slate-300">Network</span>
-        <span className="font-semibold text-slate-800 dark:text-white">
-          4G / Good
-        </span>
-      </div>
-
-      {/* Battery */}
-      <div className="flex justify-between items-center">
-        <span className="text-slate-600 dark:text-slate-300">Device Battery</span>
-        <span className="font-semibold text-slate-800 dark:text-white">
-          78%
-        </span>
-      </div>
-
-      {/* Fuel */}
-      <div className="flex justify-between items-center">
-        <span className="text-slate-600 dark:text-slate-300">Fuel Level</span>
-        <span className="font-semibold text-slate-800 dark:text-white">
-          62%
-        </span>
-      </div>
-
-      {/* Device Status */}
-      <div className="flex justify-between items-center">
-        <span className="text-slate-600 dark:text-slate-300">Device Status</span>
-        <span className="px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-semibold">
-          ONLINE
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
+                    {type === "badge" ? (
+                      <span
+                        className="px-3 py-0.5 rounded-full
+            bg-emerald-500/90 dark:bg-emerald-600
+            text-white text-xs font-semibold"
+                      >
+                        {value}
+                      </span>
+                    ) : (
+                      <span className="font-semibold text-slate-800 dark:text-white">
+                        {value}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-
-          
 
           {/* RIGHT SIDE — NEW TIMELINE + SUMMARY */}
           <div className="space-y-8">
             {/* NEW REDESIGNED TIMELINE */}
 
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200 dark:border-slate-800">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-6 shadow-lg border border-slate-200 dark:border-slate-800">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-5">
                 Trip Timeline
               </h3>
 
-              <div className="relative pl-20">
-                <div className="space-y-12">
+              <div className="relative pl-10">
+                {/* VERTICAL GRADIENT LINE */}
+                <div
+                  className="absolute left-[28px] top-0 bottom-0 w-[3px] rounded-full
+      bg-gradient-to-b from-emerald-500 via-orange-400 to-rose-500"
+                />
+
+                <div className="space-y-9">
                   {steps.map((step, index) => {
                     const isCompleted = step.status === "completed";
                     const isActive = step.status === "active";
-                    const isPending = step.status === "pending";
 
                     return (
                       <div key={index} className="relative">
-                        {/* DOT CENTERED ON LINE */}
+                        {/* DOT – PERFECTLY CENTERED ON LINE */}
                         <div
                           className={`
-                  absolute left-[25px] top-0 w-5 h-5 rounded-full border-[3px]
+                absolute left-[-10px] top-[2px]
+                w-5 h-5 -translate-x-1/2 rounded-full border-[3px]
+                ${
+                  isCompleted
+                    ? "bg-emerald-500 border-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]"
+                    : isActive
+                    ? "bg-white border-orange-400 shadow-[0_0_0_4px_rgba(251,146,60,0.15)]"
+                    : "bg-white border-rose-400 shadow-[0_0_0_4px_rgba(244,63,94,0.15)]"
+                }
+              `}
+                        />
+
+                        {/* TEXT – CLOSER & ALIGNED */}
+                        <div className="ml-10">
+                          <p
+                            className={`text-base font-semibold
                   ${
                     isCompleted
-                      ? "bg-green-500 border-green-500"
+                      ? "text-slate-900 dark:text-white"
                       : isActive
-                      ? "bg-white border-green-500"
-                      : "bg-white border-slate-400"
+                      ? "text-orange-500"
+                      : "text-slate-500"
                   }
                 `}
-                        ></div>
-
-                        {/* TEXT BLOCK */}
-                        <div className="ml-16">
-                          <p
-                            className={`
-                    text-lg font-semibold
-                    ${
-                      isCompleted
-                        ? "text-slate-900"
-                        : isActive
-                        ? "text-green-600"
-                        : "text-slate-500"
-                    }
-                  `}
                           >
                             {step.label}
                           </p>
@@ -368,50 +362,71 @@ export default function Tracking() {
               </div>
             </div>
 
-
-            
-
-            {/* Trip Summary (unchanged) */}
+            {/* Trip Summary */}
             <div
               className={`
-                  bg-gradient-to-br ${colorClasses[primaryColor].gradient}
-                  rounded-2xl p-7 sm:p-8 shadow-[0_18px_45px_rgba(15,23,42,0.75)] text-white
-                `}
+    bg-gradient-to-br ${colorClasses[primaryColor].gradient}
+    rounded-2xl
+    p-5 sm:p-6
+    shadow-[0_5px_20px_rgba(15,23,42,0.75)]
+    text-white
+    transition-all duration-300 hover:shadow-xl
+  `}
             >
-              <h3 className="text-2xl font-bold mb-5">Trip Summary</h3>
-              <div className="space-y-4 text-sm sm:text-base">
+              <h3 className="text-base sm:text-xl font-semibold mb-4">
+                Trip Summary
+              </h3>
+
+              <div className="space-y-3 text-sm sm:text-base">
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-blue-100/90">Vehicle ID</span>
+                  <span className="text-white/80">Vehicle ID</span>
                   <span className="font-semibold">TN-42-XY-1234</span>
                 </div>
 
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-blue-100/90">Driver</span>
+                  <span className="text-white/80">Driver</span>
                   <span className="font-semibold">Rajesh Kumar</span>
                 </div>
 
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-blue-100/90">Status</span>
-                  <span className="px-3 py-1 rounded-full bg-emerald-500 text-white text-xs sm:text-sm font-semibold">
+                  <span className="text-white/80">Status</span>
+                  <span
+                    className="px-3 py-0.5 rounded-full
+        bg-emerald-500/90
+        text-white text-xs sm:text-sm font-semibold"
+                  >
                     In Transit
                   </span>
                 </div>
 
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-blue-100/90">ETA</span>
+                  <span className="text-white/80">ETA</span>
                   <span className="font-semibold">2h 15m</span>
                 </div>
 
                 <div className="flex justify-between items-center gap-4">
-                  <span className="text-blue-100/90">Distance Remaining</span>
+                  <span className="text-white/80">Distance Remaining</span>
                   <span className="font-semibold">87 km</span>
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/15 text-xs sm:text-sm text-blue-100/90 flex flex-wrap gap-3">
-                <span>Ignition alerts</span>
-                <span>Route deviation monitoring</span>
-                <span>Push notifications enabled</span>
+              {/* FOOTER TAGS */}
+              <div
+                className="mt-5 pt-3
+    border-t border-white/15
+    text-xs sm:text-sm
+    text-white/80
+    flex flex-wrap gap-2"
+              >
+                <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+                  Ignition alerts
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+                  Route deviation monitoring
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm">
+                  Push notifications enabled
+                </span>
               </div>
             </div>
           </div>

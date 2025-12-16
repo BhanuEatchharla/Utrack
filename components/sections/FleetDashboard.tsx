@@ -87,16 +87,16 @@ export default function FleetDashboard() {
   return (
     <section
       id="fleet-dashboard"
-      className="py-20 bg-white dark:bg-gray-900 relative"
+      className="py-4 bg-white dark:bg-gray-900 relative"
     >
       <div className="absolute top-0 right-0 w-1 h-full hidden lg:block" />
 
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-700 dark:text-white mb-4">
             Fleet Dashboard & Deep Insights
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Comprehensive fleet management with real-time monitoring, safety
             tracking, and fuel analytics
           </p>

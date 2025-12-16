@@ -57,14 +57,14 @@ export default function TechStack() {
   return (
     <section
       id="tech-stack"
-      className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950"
+      className="py-4 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950"
     >
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-700 dark:text-white mb-4">
             Built on Modern Technology
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          <p className="text-base text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
             Enterprise-grade platform powered by cutting-edge technologies and best practices
           </p>
         </div>

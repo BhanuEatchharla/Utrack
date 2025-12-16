@@ -9,14 +9,14 @@ export default function MobileExperience() {
   return (
     <section
       id="mobile-experience"
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800"
+      className="py-4 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800"
     >
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-4">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-700 dark:text-white mb-4">
             Mobile-first for Drivers and Managers
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Native mobile apps and PWA for seamless operations on the go
           </p>
         </div>
