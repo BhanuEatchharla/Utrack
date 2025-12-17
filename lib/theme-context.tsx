@@ -17,7 +17,9 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const colorClasses: Record<
   ColorOption,
   {
-    bg: string;
+    solid: string;      // strong color (always visible)
+    soft: string;       // light mode background
+    darkBg: string;     // dark mode background
     text: string;
     border: string;
     hover: string;
@@ -25,42 +27,54 @@ export const colorClasses: Record<
   }
 > = {
   blue: {
-    bg: "bg-blue-600",
+    solid: "bg-blue-600",
+    soft: "bg-blue-200",
+    darkBg: "dark:bg-gray-800",
     text: "text-blue-600",
     border: "border-blue-600",
     hover: "hover:bg-blue-700",
     gradient: "from-blue-600 via-blue-700 to-blue-800",
   },
   emerald: {
-    bg: "bg-emerald-600",
+    solid: "bg-emerald-600",
+    soft: "bg-emerald-200",
+    darkBg: "dark:bg-gray-800",
     text: "text-emerald-600",
     border: "border-emerald-600",
     hover: "hover:bg-emerald-700",
     gradient: "from-emerald-600 via-emerald-700 to-emerald-800",
   },
   violet: {
-    bg: "bg-violet-600",
+    solid: "bg-violet-600",
+    soft: "bg-violet-200",
+    darkBg: "dark:bg-gray-800",
     text: "text-violet-600",
     border: "border-violet-600",
     hover: "hover:bg-violet-700",
     gradient: "from-violet-600 via-violet-700 to-violet-900",
   },
   teal: {
-    bg: "bg-teal-600",
+    solid: "bg-teal-600",
+    soft: "bg-teal-200",
+    darkBg: "dark:bg-gray-800",
     text: "text-teal-600",
     border: "border-teal-600",
     hover: "hover:bg-teal-700",
     gradient: "from-teal-600 via-teal-700 to-teal-800",
   },
   amber: {
-    bg: "bg-amber-600",
+    solid: "bg-amber-600",
+    soft: "bg-amber-200",
+    darkBg: "dark:bg-gray-800",
     text: "text-amber-600",
     border: "border-amber-600",
     hover: "hover:bg-amber-700",
     gradient: "from-amber-500 via-amber-600 to-amber-700",
   },
   rose: {
-    bg: "bg-rose-600",
+    solid: "bg-rose-600",
+    soft: "bg-rose-200",
+    darkBg: "dark:bg-gray-800",
     text: "text-rose-600",
     border: "border-rose-600",
     hover: "hover:bg-rose-700",

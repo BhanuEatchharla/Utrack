@@ -24,7 +24,7 @@ export default function ThemeSelector() {
   }, [isOpen]);
 
   return (
-    <div className="fixed bottom-24 lg:bottom-8 right-4 lg:right-8 z-50">
+    <div className="fixed bottom-24 lg:bottom-8 right-4 lg:right-8 z-50 bg-orange-500 rounded-full">
 
       {/* Panel */}
       {isOpen && (
@@ -39,18 +39,34 @@ export default function ThemeSelector() {
               Primary Color
             </h4>
 
-            <div className="grid grid-cols-6 gap-2">
-              {colors.map((color) => (
-                <button
-                  key={color}
-                  onClick={() => setPrimaryColor(color)}
-                  className={`w-10 h-10 rounded-lg bg-gradient-to-br ${colorClasses[color].gradient}
-                  transition-all shadow-lg
-                  ${primaryColor === color ? "ring-4 ring-white scale-110" : "hover:scale-105"}
-                  `}
-                />
-              ))}
-            </div>
+            <div className="grid grid-cols-6 gap-3">
+  {colors.map((color) => (
+    <button
+      key={color}
+      onClick={() => setPrimaryColor(color)}
+      aria-label={`Select ${color} theme`}
+      className={`
+        w-10 h-10 rounded-lg
+        flex items-center justify-center
+        bg-white dark:bg-slate-800
+        border-2
+        ${
+          primaryColor === color
+            ? "border-gray-900 dark:border-white scale-110"
+            : "border-gray-300 dark:border-slate-600"
+        }
+        shadow-md transition-all duration-200
+        hover:scale-105
+      `}
+    >
+      {/* ✅ STEP 2 IS HERE — INSIDE THE BUTTON */}
+      <span
+        className={`w-6 h-6 rounded-md ${colorClasses[color].solid}`}
+      />
+    </button>
+  ))}
+</div>
+
           </div>
 
           {/* MODE SWITCH */}

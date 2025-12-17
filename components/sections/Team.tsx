@@ -1,119 +1,99 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState } from "react";
 import { Mail, Phone, User } from "lucide-react";
 import { useTheme } from "@/lib/theme-context";
 
+/* =======================
+   COLOR MAP (SAME AS MODULES)
+======================== */
+type CardColor = "blue" | "green" | "red" | "yellow" | "violet" | "teal";
+
+const cardBg: Record<CardColor, string> = {
+  blue: "bg-blue-200",
+  green: "bg-green-200",
+  red: "bg-red-100",
+  yellow: "bg-yellow-200",
+  violet: "bg-violet-200",
+  teal: "bg-teal-200",
+};
+
 export default function Team() {
-  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const { primaryColor } = useTheme();
 
   /* =======================
-     MANAGEMENT TEAM (EXISTING)
+     MANAGEMENT TEAM
   ======================== */
-
-  const team = [
+  const management: {
+    name: string;
+    role: string;
+    employeeId: string;
+    email: string;
+    phone: string;
+    img: string;
+    color: CardColor;
+  }[] = [
     {
-      name: "Rajesh Kumar",
-      role: "Product Lead",
+      name: "SRIRAMAKRISHNA DENDUKURI",
+      role: "Chairman & Managing Director, Ramki Group",
       employeeId: "EMP-001",
-      email: "rajesh.kumar@utrack.com",
-      phone: "+91 98765 43210",
-      initials: "RK",
+      email: "ramki@ramkigroup.com",
+      phone: "+91 99590 45474",
+      img: "/team/ramkisir.jpg",
       color: "blue",
-      img: "https://randomuser.me/api/portraits/men/32.jpg",
     },
     {
-      name: "Priya Singh",
-      role: "Frontend Engineer",
+      name: "Anil Kumar",
+      role: "Product Manager",
       employeeId: "EMP-002",
-      email: "priya.singh@utrack.com",
+      email: "anilkumar@gmail.com",
       phone: "+91 98765 43211",
-      initials: "PS",
-      color: "emerald",
-      img: "https://randomuser.me/api/portraits/women/62.jpg",
+      img: "/team/Anil Kumar.jpg",
+      color: "green",
     },
     {
-      name: "Amit Patel",
-      role: "Backend Engineer",
+      name: "Srikanth",
+      role: "HR",
       employeeId: "EMP-003",
-      email: "amit.patel@utrack.com",
+      email: "srikanth@gmail.com",
       phone: "+91 98765 43212",
-      initials: "AP",
+      img: "/team/srikanth.jpg",
       color: "violet",
-      img: "https://randomuser.me/api/portraits/men/64.jpg",
+    },
+    {
+      name: "Gayatri",
+      role: "Marketing Head",
+      employeeId: "EMP-004",
+      email: "gayatri@gmail.com",
+      phone: "+91 98765 43213",
+      img: "/team/Gayetri.jpg",
+      color: "yellow",
     },
   ];
 
-  const toggleFlip = (index: number) => {
-    setFlippedIndex((prev) => (prev === index ? null : index));
-  };
-
   /* =======================
-     EMPLOYEES (NEW ORBIT)
+     EMPLOYEES
   ======================== */
-
-  const members = [
-    {
-      name: "vamsi",
-      role: "Back-End-Developer",
-      img: "/team/vamsi.jpg",
-    },
-    {
-      name: "Bhanu",
-      role: "Front-End-Developer",
-      img: "/team/bhanu.jpg",
-    },
-    {
-      name: "Surya",
-      role: "backend-Developer",
-      img: "/team/surya.jpg",
-    },
-    {
-      name: "Vivek",
-      role: "Full-Stack Developer",
-      img: "/team/vivek.jpg",
-    },
-
-    {
-      name: "pramod",
-      role: "backend-developer",
-      img: "/team/pramod.jpg",
-    },
-    {
-      name: "amith",
-      role: "Full-Stack Developer",
-      img: "/team/amith.jpg",
-    },
-    {
-      name: "praveen",
-      role: "Front-End-Developer",
-      img: "/team/praveen.jpg",
-    },
-    {
-      name: "krishnasai",
-      role: "Front-End-Developer",
-      img: "/team/krishnaSai.jpg",
-    },
-    {
-      name: "rakesh",
-      role: "Native Developer",
-      img: "/team/rakesh.jpg",
-    },
-    {
-      name: "pradeep",
-      role: "Full-Stack Developer",
-      img: "/team/pradeep.jpg",
-    },
+  const employees = [
+    { name: "Vamsi", role: "Back-End Developer", img: "/team/vamsi.jpg" },
+    { name: "Bhanu", role: "Front-End Developer", img: "/team/bhanu.jpg" },
+    { name: "Surya", role: "Back-End Developer", img: "/team/surya.jpg" },
+    { name: "Vivek", role: "Full-Stack Developer", img: "/team/vivek.jpg" },
+    { name: "Pramod", role: "Back-End Developer", img: "/team/pramod.jpg" },
+    { name: "Amith", role: "Full-Stack Developer", img: "/team/amith.jpg" },
+    { name: "Praveen", role: "Front-End Developer", img: "/team/praveen.jpg" },
+    { name: "Krishna Sai", role: "Front-End Developer", img: "/team/krishnaSai.jpg" },
+    { name: "Rakesh", role: "Native Developer", img: "/team/rakesh.jpg" },
+    { name: "Pradeep", role: "Full-Stack Developer", img: "/team/pradeep.jpg" },
   ];
 
   return (
-    <section id="team" className="py-10 bg-white dark:bg-gray-900">
+    <section id="team" className="py-12 bg-white dark:bg-gray-900">
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* ===== MANAGEMENT ===== */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
             Leadership & Core Team
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
@@ -121,60 +101,69 @@ export default function Team() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {team.map((member, index) => {
-            const isFlipped = flippedIndex === index;
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {management.map((m, index) => (
+            <div key={index} className="relative h-80 perspective-1000 group">
 
-            return (
-              <div
-                key={index}
-                className="relative h-80 perspective-1000"
-                onClick={() => toggleFlip(index)}
-              >
-                <div
-                  className={`relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer ${
-                    isFlipped ? "rotate-y-180" : ""
-                  }`}
-                >
-                  {/* FRONT */}
-                  <div className="absolute inset-0 backface-hidden bg-gray-500 dark:bg-gray-800 rounded-2xl flex flex-col items-center justify-center shadow-xl">
+              {/* ROTATING WRAPPER */}
+              <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180">
+
+                {/* FRONT (MODULE STYLE) */}
+                <div className="absolute inset-0 backface-hidden">
+                  <div
+                    className={`h-full rounded-3xl
+                      ${cardBg[m.color]}
+                      border border-gray-200 dark:border-gray-700
+                      shadow-md hover:shadow-lg
+                      transition-all duration-300
+                      flex flex-col items-center justify-center text-center`}
+                  >
                     <img
-                      src={member.img}
-                      alt={member.name}
-                      className="w-28 h-28 rounded-full object-cover shadow-lg mb-4"
+                      src={m.img}
+                      alt={m.name}
+                      className="w-24 h-24 rounded-full object-cover shadow-md mb-4"
                     />
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-gray-500">{member.role}</p>
-                  </div>
 
-                  {/* BACK */}
-                  <div className="absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 flex flex-col justify-center">
-                    <div className="space-y-3">
-                      <div className="flex items-center gap-2">
-                        <User size={16} />
-                        <span className="text-sm">{member.employeeId}</span>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-black px-3">
+                      {m.name}
+                    </h3>
+
+                    <p className="text-sm text-gray-700 dark:text-gray-700 mt-1 px-4">
+                      {m.role}
+                    </p>
+                  </div>
+                </div>
+
+                {/* BACK (CLEAN & LIGHT) */}
+                <div className="absolute inset-0 backface-hidden rotate-y-180">
+                  <div
+                    className="h-full rounded-3xl
+                      bg-red-400 dark:bg-red-300
+                      border border-gray-200 dark:border-gray-700
+                      shadow-xl p-6
+                      flex flex-col justify-center text-center"
+                  >
+                    <div className="space-y-3 text-sm text-gray-700 dark:text-black">
+                      <div className="flex justify-center gap-2">
+                        <User size={16} /> {m.employeeId}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Mail size={16} />
-                        <span className="text-sm">{member.email}</span>
+                      <div className="flex justify-center gap-2">
+                        <Mail size={16} /> {m.email}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Phone size={16} />
-                        <span className="text-sm">{member.phone}</span>
+                      <div className="flex justify-center gap-2">
+                        <Phone size={16} /> {m.phone}
                       </div>
                     </div>
                   </div>
                 </div>
+
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* ===== EMPLOYEE ORBIT ===== */}
-        {/* ================= EMPLOYEE SCROLL ================= */}
-        <div className="text-center mb-10 py-4">
+        {/* ===== EMPLOYEE MARQUEE ===== */}
+        <div className="text-center mt-16 mb-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
             Our Operations Team
           </h2>
@@ -183,26 +172,15 @@ export default function Team() {
           </p>
         </div>
 
-        {/* Marquee Wrapper */}
         <div className="relative w-full overflow-hidden">
           <div className="flex w-max animate-marquee gap-12">
-            {/* Duplicate list for seamless loop */}
-            {[...members, ...members].map((m, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center text-center min-w-[160px]"
-              >
+            {[...employees, ...employees].map((m, i) => (
+              <div key={i} className="flex flex-col items-center min-w-[160px] text-center">
                 <img
                   src={m.img}
                   alt={m.name}
-                  className="
-                  w-20 h-20 sm:w-24 sm:h-24
-                  rounded-full object-cover
-                  shadow-lg
-                  mb-3
-                "
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover shadow-lg mb-3"
                 />
-
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">
                   {m.name}
                 </p>
@@ -213,6 +191,7 @@ export default function Team() {
             ))}
           </div>
         </div>
+
       </div>
 
       {/* ===== STYLES ===== */}
@@ -229,41 +208,10 @@ export default function Team() {
         .rotate-y-180 {
           transform: rotateY(180deg);
         }
-
-        @keyframes orbit {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        //       .animate-orbit {
-        //         animation: orbit 45s linear infinite;
-        //       }
-        //          @keyframes employeeScroll {
-        //   0% {
-        //     transform: translateX(0);
-        //   }
-        //   100% {
-        //     transform: translateX(-50%);
-        //   }
-        // }
-
-        .animate-employee-scroll {
-          animation: employeeScroll 35s linear infinite;
-        }
-
         @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-
         .animate-marquee {
           animation: marquee 30s linear infinite;
         }
